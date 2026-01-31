@@ -200,9 +200,9 @@ export default function AdminLogin() {
                         </div>
 
                         {/* Help Link (Mobile only mostly) */}
-                        <div className="md:hidden text-center mt-8">
+                        {/* <div className="md:hidden text-center mt-8">
                             <a className="text-sm font-medium text-[#181111] underline" href="#">Butuh bantuan masuk?</a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
