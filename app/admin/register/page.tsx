@@ -96,7 +96,6 @@ export default function AdminRegister() {
                             alt="Laman Kabar Admin"
                             className="h-8 w-auto object-contain"
                         />
-                        <span className="font-bold text-lg">Laman Kabar Admin</span>
                     </div>
                 </div>
 
