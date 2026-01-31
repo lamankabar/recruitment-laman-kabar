@@ -182,7 +182,7 @@ export default function AdminLogin() {
                                 disabled={loading}
                                 className="mt-2 w-full bg-primary hover:bg-red-700 text-white font-bold py-3.5 px-6 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50"
                             >
-                                {loading ? 'Signing In...' : (
+                                {loading ? 'Masuk ke akun...' : (
                                     <>
                                         <span>Masuk</span>
                                         <span className="material-symbols-outlined text-sm">arrow_forward</span>
