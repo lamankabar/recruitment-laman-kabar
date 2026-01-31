@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Registration Page</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f9fafb", // Slightly adjusted for better card contrast
+                        "background-dark": "#221010",
+                        "border-light": "#e6dbdb",
+                        "border-dark": "#4a2e2e",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-200">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 dark:border-b-border-dark bg-white/90 dark:bg-[#1a0505]/90 backdrop-blur-md px-6 py-4 lg:px-12">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">diversity_3</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Community</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium text-primary" href="#">Register</a>
+</nav>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary hover:bg-red-700 text-white text-sm font-bold transition-all shadow-md shadow-red-500/20">
+<span class="truncate">Register</span>
+</button>
+</div>
+<!-- Mobile Menu Icon -->
+<div class="md:hidden flex items-center">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-4xl space-y-8">
+<!-- Page Heading -->
+<div class="text-center space-y-4 mb-8">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Become a Founding Member
+                </h1>
+<p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-normal">
+                    Fill out the details below to secure your spot for our upcoming launch. Join a growing network of professionals.
+                </p>
+</div>
+<!-- Registration Card -->
+<div class="bg-white dark:bg-[#2e1a1a] rounded-xl shadow-xl dark:shadow-none border border-gray-100 dark:border-border-dark overflow-hidden">
+<div class="p-8 sm:p-12">
+<form action="#" class="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2" method="POST">
+<!-- Full Name -->
+<div class="sm:col-span-1">
+<label class="block text-sm font-medium text-slate-900 dark:text-white mb-2" for="full-name">Full Name</label>
+<div class="relative">
+<input autocomplete="name" class="block w-full rounded-lg border-0 py-3 px-4 text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-border-dark placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#1a0505] sm:text-sm sm:leading-6 transition-shadow" id="full-name" name="full-name" placeholder="Jane Doe" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="sm:col-span-1">
+<label class="block text-sm font-medium text-slate-900 dark:text-white mb-2" for="email">Email Address</label>
+<div class="relative">
+<input autocomplete="email" class="block w-full rounded-lg border-0 py-3 px-4 text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-border-dark placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#1a0505] sm:text-sm sm:leading-6 transition-shadow" id="email" name="email" placeholder="you@example.com" type="email"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="sm:col-span-1">
+<label class="block text-sm font-medium text-slate-900 dark:text-white mb-2" for="phone-number">Phone Number</label>
+<div class="relative rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-border-dark focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary bg-white dark:bg-[#1a0505] flex">
+<div class="flex items-center pl-3">
+<span class="text-gray-500 sm:text-sm material-symbols-outlined text-lg">call</span>
+</div>
+<input autocomplete="tel" class="block w-full border-0 bg-transparent py-3 pl-3 pr-4 text-slate-900 dark:text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" id="phone-number" name="phone-number" placeholder="+1 (555) 987-6543" type="tel"/>
+</div>
+</div>
+<!-- Department Interest -->
+<div class="sm:col-span-1">
+<label class="block text-sm font-medium text-slate-900 dark:text-white mb-2" for="department">Department Interest</label>
+<div class="relative">
+<select class="block w-full rounded-lg border-0 py-3 px-4 text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-border-dark focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#1a0505] sm:text-sm sm:leading-6 transition-shadow" id="department" name="department">
+<option>Select a department...</option>
+<option>Marketing &amp; Communications</option>
+<option>Technology &amp; Engineering</option>
+<option>Design &amp; Creative</option>
+<option>Operations &amp; Strategy</option>
+<option>Other</option>
+</select>
+</div>
+</div>
+<!-- Motivation -->
+<div class="sm:col-span-2">
+<label class="block text-sm font-medium text-slate-900 dark:text-white mb-2" for="motivation">Motivation <span class="text-gray-400 font-normal ml-1">(Optional)</span></label>
+<div class="relative">
+<textarea class="block w-full rounded-lg border-0 py-3 px-4 text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-border-dark placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#1a0505] sm:text-sm sm:leading-6 resize-none transition-shadow" id="motivation" name="motivation" placeholder="Briefly tell us why you'd like to join the community..." rows="3"></textarea>
+</div>
+<p class="mt-2 text-xs text-gray-500 dark:text-gray-400 text-right">Max 200 characters</p>
+</div>
+<!-- Submit Button -->
+<div class="sm:col-span-2 pt-4">
+<button class="w-full flex justify-center items-center gap-2 rounded-lg bg-primary px-8 py-4 text-sm font-bold text-white shadow-lg shadow-red-500/30 hover:bg-red-700 hover:shadow-red-500/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200 transform hover:-translate-y-0.5" type="submit">
+                                Secure My Spot
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Social Proof -->
+<div class="mt-8 pt-6 border-t border-gray-100 dark:border-border-dark flex flex-col sm:flex-row items-center justify-center gap-4">
+<div class="flex -space-x-3 overflow-hidden p-1">
+<div class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-[#2e1a1a] bg-cover bg-center" data-alt="Portrait of a young professional woman smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCm3-yzWgCcUmAV_3ATj9A2rvWbCNNMpu5VyHolt1Ng0mrfA777hKokYEN0u0NvCTL6YxQ9tSvHApEuz7smViyC9CRoB1KSl2ybAYNGBO7RwFMtqscAnaGvHP8mM5wPjZR2jF4HnMpp9Kj9L5AB1vtyfU6vp2jmyWKyohhP_pUwLOQ_8XUi6jQed7xggT4QiBKLXXywfjUftDswQ-ZxFqNuRH0LrV1OvYlot9ZWFFia83zuzZ4OEF__yIF4O4KwIKsB_2GuF_ZmiU8');"></div>
+<div class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-[#2e1a1a] bg-cover bg-center" data-alt="Portrait of a middle-aged man with glasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCy4CSm9CEbklCNqUCYLPGkb19frBAvQKzgFpLGY8qVNpnA8gXdfBsH9h89mL7QKqdco3g-sk7zwM2TTdxmE6fKacQqnx5QIKRshCoZI1WIH5GejDizPq-Nw1Yi6yqtjOcZ_X_jRL3gq-Na7X6FN-5n5cJ0gteCAT9BX9K64rD6McqCZrfD25DG0PVao-zo6jTQ50IB010XVdNSf2dL0NSCJPSlADp4rC38PeIKluAMTtSotgaxq9ipaT1ul88kydpxrxIUfld9bOA');"></div>
+<div class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-[#2e1a1a] bg-cover bg-center" data-alt="Portrait of a young creative man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVl9oNnlcmXwhMJfsmbslXd1YORDOPwJSHGqOmNeh393hGiVZV11bIssEgla1tjvWzQll9uOmtyoXU4Oo1Ad5YKV6Au6RUyMo4rYm9VIh05Ewjreg2Wa4kn-dzxM5jBHBMA6ihqUdyiCNnDyz7HQfRfOpfVs9099iWDX8AwW7UOi3k5nFfkE0yZkaDeeOTaVMGVIkOW0HI79WdxzrLoZnjm44ZffADBuQ54WTr_knpTb-izzDpeyw45SCig-g5QREjgY5TeXeNZJQ');"></div>
+<div class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-[#2e1a1a] bg-cover bg-center" data-alt="Portrait of a professional woman in business attire" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCb-5yGk66OX0txBEpmqnmiiZKjwZU0rZZP9piRPbXKvqtg5ZWa-dbHjKENE8N6pZkqszMDuyAlZqKh05DOJi2xLeNxOXP-l9H0qADI-ttvdRKLvAcl1kxqATEe0K_7JivJnvrNk_T_CJNkNAdfKz2CmdqhYA7TJWaRZcV2qXv4syRZMxPYLfWdZ_hQeyVISlQdWR_NQ_7cuDDPwB4jNyrjQ93rUtbP6ftJrc7qcjXLPy0qCI6JBnU65FTqA28HSaajtYYG4iDgr6k');"></div>
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-[#1a0505] ring-2 ring-white dark:ring-[#2e1a1a] text-xs font-bold text-gray-600 dark:text-gray-300">
+                                +500
+                            </div>
+</div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                            Join <span class="text-slate-900 dark:text-white font-bold">500+ others</span> waiting for access.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Additional Trust Signal -->
+<div class="flex justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 pt-8">
+<!-- Logos using simple text for representation or placeholders -->
+<div class="text-xl font-black text-gray-400 tracking-tighter flex items-center gap-2">
+<span class="material-symbols-outlined">verified</span> TRUSTED
+                </div>
+<div class="text-xl font-black text-gray-400 tracking-tighter flex items-center gap-2">
+<span class="material-symbols-outlined">lock</span> SECURE
+                </div>
+<div class="text-xl font-black text-gray-400 tracking-tighter flex items-center gap-2">
+<span class="material-symbols-outlined">bolt</span> FAST
+                </div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-gray-200 dark:border-border-dark bg-white dark:bg-[#1a0505] py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="size-6 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">diversity_3</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">Community</span>
+</div>
+<div class="flex gap-8 text-sm font-medium text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<div class="text-sm text-gray-400">
+                © 2023 Community Inc. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

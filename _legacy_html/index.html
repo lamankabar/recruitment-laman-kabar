@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Homepage Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display text-[#181111] dark:text-white">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#f5f0f0] bg-white/80 backdrop-blur-md px-10 py-4 dark:bg-[#221010]/80 dark:border-[#331d1d]">
+<div class="flex items-center gap-4">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">diversity_2</span>
+</div>
+<h2 class="text-primary text-xl font-bold leading-tight tracking-tight">CommunityHub</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#divisions">Divisions</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Login</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors">
+<span class="truncate">Join Now</span>
+</button>
+</div>
+<!-- Mobile Menu Icon -->
+<div class="flex md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</header>
+<!-- Hero Section -->
+<div class="flex flex-col items-center justify-center py-20 px-5 text-center">
+<div class="max-w-[800px] flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-[#181111] dark:text-white">
+                        Something Big is <span class="text-primary">Coming</span>
+</h1>
+<p class="text-[#8a6060] dark:text-gray-400 text-lg md:text-xl font-normal leading-normal">
+                        We are preparing an amazing experience for you. Join the movement.
+                    </p>
+</div>
+<!-- Timer -->
+<div class="flex flex-wrap justify-center gap-4 py-8">
+<!-- Days -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-xl bg-white dark:bg-[#331d1d] shadow-sm border border-gray-100 dark:border-[#442525]">
+<p class="text-primary text-3xl md:text-4xl font-bold">30</p>
+</div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Days</p>
+</div>
+<!-- Hours -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-xl bg-white dark:bg-[#331d1d] shadow-sm border border-gray-100 dark:border-[#442525]">
+<p class="text-primary text-3xl md:text-4xl font-bold">12</p>
+</div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Hours</p>
+</div>
+<!-- Minutes -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-xl bg-white dark:bg-[#331d1d] shadow-sm border border-gray-100 dark:border-[#442525]">
+<p class="text-primary text-3xl md:text-4xl font-bold">45</p>
+</div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Minutes</p>
+</div>
+<!-- Seconds -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-xl bg-white dark:bg-[#331d1d] shadow-sm border border-gray-100 dark:border-[#442525]">
+<p class="text-primary text-3xl md:text-4xl font-bold">08</p>
+</div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Seconds</p>
+</div>
+</div>
+</div>
+</div>
+<!-- About Section -->
+<div class="px-5 md:px-20 py-12 flex justify-center bg-white dark:bg-[#2a1414]" id="about">
+<div class="max-w-[960px] w-full flex flex-col md:flex-row gap-10 items-center">
+<div class="flex-1">
+<div class="w-full h-64 md:h-80 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center relative overflow-hidden" data-alt="Abstract community illustration with hands shaking">
+<span class="material-symbols-outlined text-primary text-9xl opacity-20 absolute rotate-12 -right-10 -bottom-10">handshake</span>
+<div class="absolute inset-0"></div>
+<span class="material-symbols-outlined text-primary text-6xl relative z-10">groups</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-4">
+<h2 class="text-3xl font-bold leading-tight tracking-tight text-[#181111] dark:text-white">
+                        Building a Better Tomorrow
+                    </h2>
+<p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                        Our mission is to foster a vibrant community where innovation, culture, and social well-being thrive together. We believe in the power of connection and the strength of diversity. Stay tuned for our grand opening where we unveil the future of community living.
+                    </p>
+<div class="pt-2">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#">
+                            Learn more about our vision <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Divisions Grid -->
+<div class="px-5 md:px-20 py-16 flex flex-col items-center" id="divisions">
+<div class="max-w-[1200px] w-full flex flex-col gap-10">
+<div class="text-center max-w-[600px] mx-auto">
+<h2 class="text-3xl font-bold mb-3">Our Departments</h2>
+<p class="text-gray-500 dark:text-gray-400">Explore the various divisions that make our community unique and functional.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-[#331d1d] p-6 rounded-xl border border-gray-100 dark:border-[#442525] shadow-sm hover:shadow-md transition-shadow group">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">school</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Education</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Empowering minds through workshops, seminars, and continuous learning programs.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-[#331d1d] p-6 rounded-xl border border-gray-100 dark:border-[#442525] shadow-sm hover:shadow-md transition-shadow group">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">volunteer_activism</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Social Services</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Dedicated to supporting the well-being of every member through care and outreach.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-[#331d1d] p-6 rounded-xl border border-gray-100 dark:border-[#442525] shadow-sm hover:shadow-md transition-shadow group">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Tech &amp; Innovation</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Driving the future with cutting-edge technology and digital transformation initiatives.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-[#331d1d] p-6 rounded-xl border border-gray-100 dark:border-[#442525] shadow-sm hover:shadow-md transition-shadow group">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Arts &amp; Culture</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Celebrating creativity and heritage through exhibitions, performances, and art.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-white dark:bg-[#331d1d] p-6 rounded-xl border border-gray-100 dark:border-[#442525] shadow-sm hover:shadow-md transition-shadow group">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">cardiology</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Health &amp; Wellness</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Promoting a healthy lifestyle with fitness programs and wellness resources.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-white dark:bg-[#331d1d] p-6 rounded-xl border border-gray-100 dark:border-[#442525] shadow-sm hover:shadow-md transition-shadow group">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Community Outreach</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Connecting with the broader neighborhood to build strong, lasting relationships.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="px-5 md:px-20 py-12 flex justify-center">
+<div class="max-w-[960px] w-full bg-white dark:bg-[#2a1414] border border-gray-100 dark:border-[#442525] shadow-lg rounded-2xl overflow-hidden relative">
+<!-- Decorative accent -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+<div class="flex flex-col md:flex-row items-center justify-between p-10 gap-8 relative z-10">
+<div class="flex flex-col gap-2 max-w-lg">
+<h2 class="text-2xl md:text-3xl font-bold text-[#181111] dark:text-white">Mari Bergabung bersama Kami</h2>
+<p class="text-gray-500 dark:text-gray-400">Be part of the change. Join our community today and start making a difference in the world around you.</p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
+                            Join Now
+                        </button>
+<button class="flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border-2 border-primary text-primary text-base font-bold hover:bg-primary/5 transition-colors">
+                            Tanya
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto border-t border-[#f5f0f0] bg-white dark:bg-[#221010] dark:border-[#331d1d] px-10 py-8">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">diversity_2</span>
+<span class="text-lg font-bold text-[#181111] dark:text-white">CommunityHub</span>
+</div>
+<div class="flex gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<div class="flex gap-4">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span> <!-- generic web/social icon replacement -->
+</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div class="text-center mt-8 text-xs text-gray-400">
+                © 2024 CommunityHub. All rights reserved.
+            </div>
+</footer>
+</div>
+</body></html>

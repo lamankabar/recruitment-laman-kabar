@@ -1,65 +1,165 @@
-import Image from "next/image";
 
-export default function Home() {
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import Countdown from '@/components/Countdown'
+import { supabase } from '@/lib/supabase'
+import Link from 'next/link'
+
+export const revalidate = 60
+
+async function getAboutUs() {
+  const { data } = await supabase.from('about_us').select('*').single()
+  // Use 'description' from new schema, fallback to 'content' (old), then default text
+  return {
+    title: data?.title || "",
+    description: data?.description || data?.content || ""
+  }
+}
+
+async function getDepartments() {
+  const { data } = await supabase.from('departments').select('*')
+  return data || []
+}
+
+// Helper to map department names to icons (fallback to 'groups' if not found)
+function getIconForDept(name: string) {
+  const lower = name.toLowerCase()
+  if (lower.includes('educa') || lower.includes('pendidikan')) return 'school'
+  if (lower.includes('social') || lower.includes('sosial')) return 'volunteer_activism'
+  if (lower.includes('tech') || lower.includes('teknologi')) return 'rocket_launch'
+  if (lower.includes('art') || lower.includes('seni') || lower.includes('budaya')) return 'palette'
+  if (lower.includes('health') || lower.includes('kesehatan')) return 'cardiology'
+  if (lower.includes('outreach') || lower.includes('humas')) return 'campaign'
+  return 'groups' // default
+}
+
+// Helper to get hero content
+async function getHeroContent() {
+  const { data } = await supabase.from('home_hero_content').select('*').limit(1).single()
+  return {
+    headline_prefix: data?.headline_prefix || "",
+    headline_highlight: data?.headline_highlight || "",
+    subheadline: data?.subheadline || ""
+  }
+}
+
+export default async function Home() {
+  const aboutData = await getAboutUs()
+  const departments = await getDepartments()
+  const heroContent = await getHeroContent()
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light group/design-root overflow-x-hidden font-display text-[#181111]">
+      <Navbar />
+
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <div className="flex flex-col items-center justify-center py-20 px-5 text-center">
+          <div className="max-w-[800px] flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-[#181111]">
+                {heroContent.headline_prefix} <span className="text-primary">{heroContent.headline_highlight}</span>
+              </h1>
+              <p className="text-[#8a6060] text-lg md:text-xl font-normal leading-normal">
+                {heroContent.subheadline}
+              </p>
+            </div>
+            {/* Timer */}
+            <Countdown />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* About Section */}
+        <div className="px-5 md:px-20 py-12 flex justify-center bg-white" id="about">
+          <div className="max-w-[960px] w-full flex flex-col md:flex-row gap-10 items-center">
+            <div className="flex-1">
+              <div className="w-full h-64 md:h-80 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-0"></div>
+                <img
+                  src="http://cdn01.lamankabar.web.id/logo/lamankabar-logo.png"
+                  alt="Laman Kabar Logo"
+                  className="w-2/3 md:w-1/2 h-auto object-contain relative z-10 drop-shadow-md"
+                />
+              </div>
+            </div>
+            <div className="flex-1 flex flex-col gap-4">
+              <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#181111]">
+                {aboutData.title || "Tentang Kami"}
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed line-clamp-4 overflow-hidden text-ellipsis">
+                {aboutData.description}
+              </p>
+              <div className="pt-2">
+                <Link href="/tentang-kami" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                  Lihat selengkapnya <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divisions Section */}
+        <div className="px-5 md:px-20 py-16 flex flex-col items-center" id="divisions">
+          <div className="max-w-[1200px] w-full flex flex-col gap-10">
+            <div className="text-center max-w-[600px] mx-auto">
+              <h2 className="text-3xl font-bold mb-3">Departemen Kami</h2>
+              <p className="text-gray-500">Berikut ini adalah departemen yang berada di Laman Kabar.</p>
+            </div>
+
+            {(await supabase.from('departments_config').select('is_active').single()).data?.is_active === false ? (
+              <div className="flex flex-col items-center justify-center py-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="bg-orange-50 text-orange-600 px-6 py-2 rounded-full font-bold tracking-widest uppercase text-sm mb-4 border border-orange-100">
+                  Stay Tuned
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black text-[#181111] tracking-tight text-center">
+                  Segera Hadir
+                </h2>
+                <p className="text-[#8a6060] mt-3 text-lg text-center max-w-md font-medium">
+                  Departemen kami sedang dalam persiapan. Nantikan info selanjutnya!
+                </p>
+              </div>
+            ) : departments.length === 0 ? (
+              <p className="text-center text-gray-500">Tidak ada data departemen tersedia.</p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {departments.map((dept: any) => (
+                  <div key={dept.id} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group">
+                    <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined">{getIconForDept(dept.name)}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{dept.name}</h3>
+                    <p className="text-gray-500 text-sm">{dept.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="px-5 md:px-20 py-12 flex justify-center">
+          <div className="max-w-[960px] w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative">
+            {/* Decorative accent */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+            <div className="flex flex-col md:flex-row items-center justify-between p-10 gap-8 relative z-10">
+              <div className="flex flex-col gap-2 max-w-lg">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#181111]">Mari Bergabung bersama Kami!</h2>
+                <p className="text-gray-500">Jadilah bagian dari tim jurnalistik Laman Kabar!</p>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/daftar" className="flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
+                  Daftar
+                </Link>
+                <Link href="/tentang-kami" className="flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border-2 border-primary text-primary text-base font-bold hover:bg-primary/5 transition-colors">
+                  Tentang Kami
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
+
+      <Footer />
     </div>
-  );
+  )
 }
