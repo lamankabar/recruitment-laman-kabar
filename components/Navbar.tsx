@@ -20,9 +20,8 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
                 <div className="flex items-center gap-9">
-                    <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/">Home</Link>
+                    <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/">Beranda</Link>
                     <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/tentang-kami">Tentang</Link>
-                    <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/#divisi">Divisi</Link>
                 </div>
                 <Link href="/daftar" className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors">
                     <span className="truncate">Daftar</span>
@@ -37,9 +36,8 @@ export default function Navbar() {
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
                 <div className="absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-lg p-5 flex flex-col gap-4 animate-in slide-in-from-top-2 md:hidden">
-                    <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/">Home</Link>
+                    <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/">Beranda</Link>
                     <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/tentang-kami">Tentang</Link>
-                    <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/#divisi">Divisi</Link>
                     <Link onClick={() => setIsMobileMenuOpen(false)} href="/daftar" className="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors mt-2">
                         Daftar
                     </Link>

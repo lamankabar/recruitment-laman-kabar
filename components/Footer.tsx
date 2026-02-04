@@ -12,21 +12,21 @@ export default function Footer() {
                     {/* <span className="text-lg font-bold text-[#181111] dark:text-white">Laman Kabar</span> */}
                 </div>
                 <div className="flex gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <a className="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-                    <a className="hover:text-primary transition-colors" href="#">Terms of Service</a>
-                    <a className="hover:text-primary transition-colors" href="#">Contact Us</a>
+                    <a className="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
+                    <a className="hover:text-primary transition-colors" href="#">S&K Website</a>
+                    <a className="hover:text-primary transition-colors" href="mailto:lamankabarupi@gmail.com">Hubungi Kami</a>
                 </div>
                 <div className="flex gap-4">
-                    <a className="text-gray-400 hover:text-primary transition-colors" href="#">
+                    <a className="text-gray-400 hover:text-primary transition-colors" href="https://www.instagram.com/lamankabarupi/">
                         <span className="material-symbols-outlined">public</span>
                     </a>
-                    <a className="text-gray-400 hover:text-primary transition-colors" href="#">
+                    <a className="text-gray-400 hover:text-primary transition-colors" href="mailto:lamankabarupi@gmail.com">
                         <span className="material-symbols-outlined">mail</span>
                     </a>
                 </div>
             </div>
             <div className="text-center mt-8 text-xs text-gray-400">
-                © {new Date().getFullYear()} Laman Kabar. All rights reserved.
+                © {new Date().getFullYear()} Laman Kabar UPI Purwakarta. All rights reserved.
             </div>
         </footer>
     )

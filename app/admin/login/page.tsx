@@ -47,7 +47,7 @@ export default function AdminLogin() {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col h-full justify-between">
+                <div className="relative z-10 flex flex-col h-full justify-between animate-fade-in-up">
                     <div>
                         <div className="mb-8">
                             <img
@@ -95,7 +95,7 @@ export default function AdminLogin() {
                 </div>
 
                 <div className="flex-1 flex items-center justify-center p-6 sm:p-12 lg:p-24 overflow-y-auto">
-                    <div className="w-full max-w-md flex flex-col gap-8">
+                    <div className="w-full max-w-md flex flex-col gap-8 animate-fade-in-up">
                         {/* Top Navigation Link */}
                         <div className="absolute top-6 right-6 hidden md:block">
                             <Link href="/" className="text-sm font-semibold text-[#8a6060] hover:text-primary transition-colors flex items-center gap-2">

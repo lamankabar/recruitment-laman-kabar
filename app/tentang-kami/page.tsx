@@ -54,7 +54,7 @@ export default async function AboutPage() {
 
             <main className="flex-grow container mx-auto px-6 py-12 max-w-4xl">
                 {/* Logo/Icon Section */}
-                <div className="flex flex-col items-center justify-center mb-10">
+                <div className="flex flex-col items-center justify-center mb-10 animate-fade-in-up">
                     <div className="size-24 flex items-center justify-center text-primary bg-primary/5 rounded-full mb-6 overflow-hidden">
                         {about.logo_url ? (
                             <img src={about.logo_url} alt="Logo" className="w-full h-full object-cover" />
@@ -69,17 +69,17 @@ export default async function AboutPage() {
                 </div>
 
                 {/* Content Section */}
-                <div className="prose prose-lg prose-slate mx-auto text-gray-600 leading-relaxed text-justify">
+                <div className="prose prose-lg prose-slate mx-auto text-gray-600 leading-relaxed text-justify animate-fade-in-up">
                     <p className="mb-6 whitespace-pre-line">
                         {about.description}
                     </p>
 
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Visi Kami</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Visi</h3>
                     <p className="mb-6 whitespace-pre-line">
                         {about.vision}
                     </p>
 
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Misi Kami</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Misi</h3>
                     <ul className="list-disc pl-6 mb-6 space-y-2">
                         {missionPoints.map((point: string, idx: number) => (
                             <li key={idx}>
@@ -97,8 +97,8 @@ export default async function AboutPage() {
                     {/* Departments Section (Inserted) */}
                     <div className="my-12">
                         <div className="mb-8">
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2">Departemen Kami</h3>
-                            <p className="text-base text-gray-500">Divisi yang tersedia untuk mendukung arah gerak kami.</p>
+                            <h3 className="text-2xl font-bold text-slate-900 mb-2">Struktur Pengurus</h3>
+                            <p className="text-base text-gray-500">Berikut ini adalah struktur pengurus Laman Kabar.</p>
                         </div>
 
                         {isDepartmentsActive === false ? (
@@ -109,7 +109,7 @@ export default async function AboutPage() {
                                 <h4 className="text-xl font-bold text-slate-800">Segera Hadir</h4>
                             </div>
                         ) : departments.length === 0 ? (
-                            <p className="text-center text-gray-400 italic">Belum ada data departemen.</p>
+                            <p className="text-center text-gray-400 italic">Belum ada data.</p>
                         ) : (
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {departments.map((dept: any) => (
@@ -137,7 +137,7 @@ export default async function AboutPage() {
 
             {/* CTA Section */}
             <div className="px-5 md:px-20 py-12 flex justify-center bg-background-light">
-                <div className="max-w-[960px] w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative">
+                <div className="max-w-[960px] w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative animate-fade-in-up">
                     {/* Decorative accent */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
                     <div className="flex flex-col md:flex-row items-center justify-between p-10 gap-8 relative z-10">

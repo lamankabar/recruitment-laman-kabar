@@ -54,7 +54,7 @@ export default async function Home() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <div className="flex flex-col items-center justify-center py-20 px-5 text-center">
+        <div className="flex flex-col items-center justify-center py-20 px-5 text-center animate-fade-in-up">
           <div className="max-w-[800px] flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-[#181111]">
@@ -71,7 +71,7 @@ export default async function Home() {
 
         {/* About Section */}
         <div className="px-5 md:px-20 py-12 flex justify-center bg-white" id="about">
-          <div className="max-w-[960px] w-full flex flex-col md:flex-row gap-10 items-center">
+          <div className="max-w-[960px] w-full flex flex-col md:flex-row gap-10 items-center animate-fade-in-up">
             <div className="flex-1">
               <div className="w-full h-64 md:h-80 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-0"></div>
@@ -100,10 +100,10 @@ export default async function Home() {
 
         {/* Divisions Section */}
         <div className="px-5 md:px-20 py-16 flex flex-col items-center" id="divisions">
-          <div className="max-w-[1200px] w-full flex flex-col gap-10">
+          <div className="max-w-[1200px] w-full flex flex-col gap-10 animate-fade-in-up">
             <div className="text-center max-w-[600px] mx-auto">
-              <h2 className="text-3xl font-bold mb-3">Departemen Kami</h2>
-              <p className="text-gray-500">Berikut ini adalah departemen yang berada di Laman Kabar.</p>
+              <h2 className="text-3xl font-bold mb-3">Struktur Pengurus</h2>
+              <p className="text-gray-500">Berikut ini adalah struktur pengurus Laman Kabar.</p>
             </div>
 
             {(await supabase.from('departments_config').select('is_active').single()).data?.is_active === false ? (
@@ -115,11 +115,11 @@ export default async function Home() {
                   Segera Hadir
                 </h2>
                 <p className="text-[#8a6060] mt-3 text-lg text-center max-w-md font-medium">
-                  Departemen kami sedang dalam persiapan. Nantikan info selanjutnya!
+                  Struktur pengurus kami sedang dalam persiapan. Nantikan info selanjutnya!
                 </p>
               </div>
             ) : departments.length === 0 ? (
-              <p className="text-center text-gray-500">Tidak ada data departemen tersedia.</p>
+              <p className="text-center text-gray-500">Tidak ada data struktur pengurus tersedia.</p>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {departments.map((dept: any) => (
@@ -138,7 +138,7 @@ export default async function Home() {
 
         {/* CTA Section */}
         <div className="px-5 md:px-20 py-12 flex justify-center">
-          <div className="max-w-[960px] w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative">
+          <div className="max-w-[960px] w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative animate-fade-in-up">
             {/* Decorative accent */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
             <div className="flex flex-col md:flex-row items-center justify-between p-10 gap-8 relative z-10">

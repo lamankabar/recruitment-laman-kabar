@@ -89,12 +89,12 @@ export default function DaftarPage() {
             <div className="flex flex-col min-h-screen bg-background-light font-display text-slate-900 transition-colors duration-200">
                 <Navbar />
                 <main className="flex-grow flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-                    <div className="w-full max-w-2xl text-center space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="w-full max-w-2xl text-center space-y-6 animate-fade-in-up">
                         <div className="mx-auto w-24 h-24 rounded-full bg-red-50 text-red-500 flex items-center justify-center mb-6 border border-red-100 shadow-sm">
                             <span className="material-symbols-outlined text-4xl">block</span>
                         </div>
                         <h1 className="text-4xl md:text-5xl font-black tracking-tight text-[#181111]">
-                            Registration Closed
+                            Pendaftaran Tidak Tersedia
                         </h1>
                         <div className="bg-white p-6 rounded-2xl border border-dashed border-gray-300 shadow-sm">
                             <p className="text-lg text-slate-600 font-medium leading-relaxed">
@@ -124,9 +124,9 @@ export default function DaftarPage() {
                         {/* Header for Embed Mode (Optional, maybe keep it minimal) */}
                         <div className="text-center space-y-4 mb-8">
                             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#181111]">
-                                Registration Form
+                                Formulir Pendaftaran
                             </h1>
-                            <p className="text-slate-500">Please complete the form below.</p>
+                            <p className="text-slate-500">Silahkan lengkapi formulir pendaftaran di bawah ini.</p>
                         </div>
 
                         {/* Embed Container */}
@@ -139,7 +139,7 @@ export default function DaftarPage() {
                             ) : (
                                 <div className="p-12 text-center text-gray-400 flex flex-col items-center">
                                     <span className="material-symbols-outlined text-4xl mb-2">code_off</span>
-                                    <p>No embed code configured.</p>
+                                    <p>Tidak ada kode embed tersedia.</p>
                                 </div>
                             )}
                         </div>
@@ -156,14 +156,14 @@ export default function DaftarPage() {
             <Navbar />
 
             <main className="flex-grow flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-                <div className="w-full max-w-4xl space-y-8 animate-in fade-in duration-500">
+                <div className="w-full max-w-4xl space-y-8 animate-fade-in-up">
                     {/* Page Heading */}
                     <div className="text-center space-y-4 mb-8">
                         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#181111]">
-                            Become a Founding Member
+                            Pendaftaran
                         </h1>
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto font-normal">
-                            Fill out the details below to secure your spot for our upcoming launch. Join a growing network of professionals.
+                            Isilah formulir pendaftaran di bawah ini.
                         </p>
                     </div>
 
@@ -190,7 +190,7 @@ export default function DaftarPage() {
                             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
                                 {/* Full Name */}
                                 <div className="sm:col-span-1">
-                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="full-name">Full Name</label>
+                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="full-name">Nama Lengkap</label>
                                     <div className="relative">
                                         <input
                                             autoComplete="name"
@@ -205,7 +205,7 @@ export default function DaftarPage() {
                                 </div>
                                 {/* Email */}
                                 <div className="sm:col-span-1">
-                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="email">Email Address</label>
+                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="email">Email</label>
                                     <div className="relative">
                                         <input
                                             autoComplete="email"
@@ -220,7 +220,7 @@ export default function DaftarPage() {
                                 </div>
                                 {/* Phone Number */}
                                 <div className="sm:col-span-1">
-                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="phone-number">Phone Number</label>
+                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="phone-number">Nomor Telepon</label>
                                     <div className="relative rounded-lg shadow-sm border border-slate-200 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary bg-white flex overflow-hidden">
                                         <div className="flex items-center pl-3 bg-slate-50 border-r border-slate-200 pr-3">
                                             <span className="text-slate-500 sm:text-sm material-symbols-outlined text-lg">call</span>
@@ -238,19 +238,19 @@ export default function DaftarPage() {
                                 </div>
                                 {/* Department Interest */}
                                 <div className="sm:col-span-1">
-                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="department">Department Interest</label>
+                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="department">Bidang Interes</label>
                                     <div className="relative">
                                         <select
                                             className="block w-full rounded-lg border-slate-200 py-3 px-4 text-slate-900 shadow-sm focus:border-primary focus:ring-1 focus:ring-primary sm:text-sm transition-all appearance-none"
                                             id="department"
                                             name="department"
                                         >
-                                            <option>Select a department...</option>
+                                            <option>Pilih Bidang Interes...</option>
                                             <option>Marketing & Communications</option>
                                             <option>Technology & Engineering</option>
                                             <option>Design & Creative</option>
                                             <option>Operations & Strategy</option>
-                                            <option>Other</option>
+                                            <option>Lainnya</option>
                                         </select>
                                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
                                             <span className="material-symbols-outlined text-sm">expand_more</span>
@@ -259,7 +259,7 @@ export default function DaftarPage() {
                                 </div>
                                 {/* Motivation */}
                                 <div className="sm:col-span-2">
-                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="motivation">Motivation <span className="text-gray-400 font-normal ml-1">(Optional)</span></label>
+                                    <label className="block text-sm font-bold text-slate-700 mb-2" htmlFor="motivation">Motivasi <span className="text-gray-400 font-normal ml-1">(Optional)</span></label>
                                     <div className="relative">
                                         <textarea
                                             className="block w-full rounded-lg border-slate-200 py-3 px-4 text-slate-900 shadow-sm focus:border-primary focus:ring-1 focus:ring-primary sm:text-sm resize-none transition-all"

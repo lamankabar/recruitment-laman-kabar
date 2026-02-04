@@ -249,10 +249,10 @@ export default function ContentPage() {
                             </div>
                             <div className="p-10 bg-white flex flex-col items-center text-center">
                                 <h1 className="text-3xl md:text-5xl font-black text-[#181111] tracking-tight mb-4">
-                                    {headlinePrefix || 'Something Big is'} <span className="text-primary">{headlineHighlight || 'Coming'}</span>
+                                    {headlinePrefix || 'Ini teks highlight'} <span className="text-primary">{headlineHighlight || 'highlight merah'}</span>
                                 </h1>
                                 <p className="text-[#8a6060] text-lg md:text-xl font-normal leading-normal max-w-2xl">
-                                    {subheadline || 'We are preparing an amazing experience for you. Join the movement.'}
+                                    {subheadline || 'Ini subheadline'}
                                 </p>
                             </div>
                         </div>

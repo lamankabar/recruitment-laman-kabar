@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
 :root {
   --background: #ffffff;
@@ -17,6 +18,20 @@
   --color-background-light: #f8f5f5;
   --color-background-dark: #221010;
   --font-display: "Plus Jakarta Sans", sans-serif;
+
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {
