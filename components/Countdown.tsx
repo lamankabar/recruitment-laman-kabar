@@ -84,19 +84,7 @@ export default function Countdown() {
     if (isLoading) return <div className="text-center py-8 text-gray-500">Loading...</div>
 
     if (!isActive) {
-        return (
-            <div className="flex flex-col items-center justify-center py-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                <div className="bg-primary/10 text-primary px-6 py-2 rounded-full font-bold tracking-widest uppercase text-sm mb-4 border border-primary/20">
-                    Stay Tuned
-                </div>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-800 tracking-tight text-center">
-                    Segera Hadir
-                </h2>
-                <p className="text-slate-500 mt-3 text-lg text-center max-w-md">
-                    Kami sedang mempersiapkan sesuatu untukmu.
-                </p>
-            </div>
-        )
+        return null
     }
 
     if (!timeLeft) return <div className="text-center py-8 text-gray-500">Preparing Countdown...</div>
