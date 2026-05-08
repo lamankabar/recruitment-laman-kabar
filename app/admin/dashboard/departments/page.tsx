@@ -33,7 +33,8 @@ export default function DepartmentsPage() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [newName, setNewName] = useState('')
     const [newDesc, setNewDesc] = useState('')
-    const [adding, setAdding] = useState(false)
+    const [saving, setSaving] = useState(false)
+    const [editingId, setEditingId] = useState<string | null>(null)
 
     // Menu State (for Delete)
     const [activeMenuId, setActiveMenuId] = useState<string | null>(null)
@@ -82,22 +83,48 @@ export default function DepartmentsPage() {
         }
     }
 
-    async function handleAdd(e: React.FormEvent) {
+    function openAddModal() {
+        setEditingId(null)
+        setNewName('')
+        setNewDesc('')
+        setIsModalOpen(true)
+    }
+
+    function openEditModal(dept: Department) {
+        setEditingId(dept.id)
+        setNewName(dept.name)
+        setNewDesc(dept.description)
+        setIsModalOpen(true)
+        setActiveMenuId(null)
+    }
+
+    async function handleSave(e: React.FormEvent) {
         e.preventDefault()
-        setAdding(true)
+        setSaving(true)
 
-        const { data } = await supabase
-            .from('departments')
-            .insert([{ name: newName, description: newDesc }])
-            .select()
+        if (editingId) {
+            const { data, error } = await supabase
+                .from('departments')
+                .update({ name: newName, description: newDesc })
+                .eq('id', editingId)
+                .select()
 
-        if (data) {
-            setDepartments([...departments, data[0]])
-            setNewName('')
-            setNewDesc('')
-            setIsModalOpen(false)
+            if (data && !error) {
+                setDepartments(departments.map(d => d.id === editingId ? data[0] : d))
+                setIsModalOpen(false)
+            }
+        } else {
+            const { data, error } = await supabase
+                .from('departments')
+                .insert([{ name: newName, description: newDesc }])
+                .select()
+
+            if (data && !error) {
+                setDepartments([...departments, data[0]])
+                setIsModalOpen(false)
+            }
         }
-        setAdding(false)
+        setSaving(false)
     }
 
     async function handleDelete(id: string) {
@@ -167,7 +194,7 @@ export default function DepartmentsPage() {
                     <p className="text-[#8a6060] text-base font-normal max-w-2xl">Create and manage internal divisions.</p>
                 </div>
                 <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={openAddModal}
                     className="flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-6 bg-primary hover:bg-red-700 text-white text-sm font-bold shadow-lg shadow-red-500/20 transition-all active:scale-95"
                 >
                     <span className="material-symbols-outlined text-[20px]">add</span>
@@ -218,6 +245,13 @@ export default function DepartmentsPage() {
                                     {activeMenuId === dept.id && (
                                         <div className="absolute right-0 top-8 w-32 bg-white rounded-lg shadow-xl border border-gray-100 z-10 py-1 animation-fade-in">
                                             <button
+                                                onClick={() => openEditModal(dept)}
+                                                className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 flex items-center gap-2"
+                                            >
+                                                <span className="material-symbols-outlined text-[16px]">edit</span>
+                                                Edit
+                                            </button>
+                                            <button
                                                 onClick={() => handleDelete(dept.id)}
                                                 className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
                                             >
@@ -245,7 +279,7 @@ export default function DepartmentsPage() {
 
                 {/* Create New Placeholder Card */}
                 <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={openAddModal}
                     className="group flex flex-col items-center justify-center min-h-[220px] rounded-xl p-6 border-2 border-dashed border-[#e6dbdb] hover:border-primary hover:bg-primary/5 transition-all duration-300 text-center gap-4"
                 >
                     <div className="size-14 rounded-full bg-[#f5f0f0] group-hover:bg-white flex items-center justify-center transition-colors shadow-sm">
@@ -264,17 +298,17 @@ export default function DepartmentsPage() {
                 {/* Pagination Controls could go here */}
             </div>
 
-            {/* Add Department Modal */}
+            {/* Department Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
                     <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-scale-in">
                         <div className="p-6 border-b border-gray-100 flex justify-between items-center">
-                            <h3 className="text-xl font-bold text-slate-900">Add New Department</h3>
+                            <h3 className="text-xl font-bold text-slate-900">{editingId ? 'Edit Department' : 'Add New Department'}</h3>
                             <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-gray-600">
                                 <span className="material-symbols-outlined">close</span>
                             </button>
                         </div>
-                        <form onSubmit={handleAdd} className="p-6 flex flex-col gap-4">
+                        <form onSubmit={handleSave} className="p-6 flex flex-col gap-4">
                             <div>
                                 <label className="block text-sm font-bold text-slate-700 mb-1">Department Name</label>
                                 <input
@@ -305,10 +339,10 @@ export default function DepartmentsPage() {
                                 </button>
                                 <button
                                     type="submit"
-                                    disabled={adding}
+                                    disabled={saving}
                                     className="flex-1 px-4 py-3 rounded-lg bg-primary text-white font-bold hover:bg-red-700 transition-colors shadow-lg shadow-primary/20"
                                 >
-                                    {adding ? 'Adding...' : 'Create Department'}
+                                    {saving ? 'Saving...' : (editingId ? 'Save Changes' : 'Create Department')}
                                 </button>
                             </div>
                         </form>
