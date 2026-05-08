@@ -52,6 +52,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         { href: '/admin/dashboard/content', icon: 'edit_document', label: 'Konten Beranda' },
         { href: '/admin/dashboard/about', icon: 'info', label: 'Tentang Kami' },
         { href: '/admin/dashboard/departments', icon: 'domain', label: 'Department' },
+        { href: '/admin/dashboard/faq', icon: 'quiz', label: 'FAQ' },
         { href: '/admin/dashboard/submissions', icon: 'group', label: 'Pendaftaran' },
         { href: '/admin/dashboard/registration', icon: 'settings_applications', label: 'Pengaturan Pendaftaran' },
     ]

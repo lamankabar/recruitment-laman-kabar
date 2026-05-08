@@ -43,10 +43,17 @@ async function getHeroContent() {
   }
 }
 
+// Helper to get FAQs
+async function getFaqs() {
+  const { data } = await supabase.from('faqs').select('*').eq('is_active', true).order('created_at', { ascending: true })
+  return data || []
+}
+
 export default async function Home() {
   const aboutData = await getAboutUs()
   const departments = await getDepartments()
   const heroContent = await getHeroContent()
+  const faqs = await getFaqs()
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light group/design-root overflow-x-hidden font-display text-[#181111]">
@@ -100,7 +107,7 @@ export default async function Home() {
 
         {/* Divisions Section */}
         <div className="px-5 md:px-20 py-16 flex flex-col items-center" id="divisions">
-          <div className="max-w-[1200px] w-full flex flex-col gap-10 animate-fade-in-up">
+          <div className="max-w-[960px] w-full flex flex-col gap-10 animate-fade-in-up">
             <div className="text-center max-w-[600px] mx-auto">
               <h2 className="text-3xl font-bold mb-3">Struktur Pengurus</h2>
               <p className="text-gray-500">Berikut ini adalah struktur pengurus Laman Kabar.</p>
@@ -135,6 +142,34 @@ export default async function Home() {
             )}
           </div>
         </div>
+
+        {/* FAQ Section */}
+        {faqs.length > 0 && (
+          <div className="px-5 md:px-20 py-16 flex flex-col items-center bg-[#fcf9f9]" id="faq">
+            <div className="max-w-[960px] w-full flex flex-col gap-10 animate-fade-in-up">
+              <div className="text-center max-w-[600px] mx-auto">
+                <h2 className="text-3xl font-bold mb-3 text-[#181111]">Frequently Asked Questions</h2>
+                <p className="text-gray-500">Punya pertanyaan? Temukan jawabannya di sini.</p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                {faqs.map((faq: any) => (
+                  <details key={faq.id} className="group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-lg text-[#181111] hover:text-primary transition-colors">
+                      {faq.question}
+                      <span className="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform duration-300">
+                        expand_more
+                      </span>
+                    </summary>
+                    <div className="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 leading-relaxed border-t border-gray-50 pt-4 mt-2">
+                      <p className="whitespace-pre-line">{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* CTA Section */}
         <div className="px-5 md:px-20 py-12 flex justify-center">

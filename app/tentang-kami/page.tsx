@@ -137,19 +137,19 @@ export default async function AboutPage() {
 
             {/* CTA Section */}
             <div className="px-5 md:px-20 py-12 flex justify-center bg-background-light">
-                <div className="max-w-[960px] w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative animate-fade-in-up">
+                <div className="max-w-4xl w-full bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden relative animate-fade-in-up">
                     {/* Decorative accent */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-                    <div className="flex flex-col md:flex-row items-center justify-between p-10 gap-8 relative z-10">
-                        <div className="flex flex-col gap-2 max-w-lg">
-                            <h2 className="text-2xl md:text-3xl font-bold text-[#181111]">Mari Bergabung bersama Kami!</h2>
-                            <p className="text-gray-500">Masih ragu atau ada yang ingin ditanyakan? Jangan sungkan untuk menghubungi kami.</p>
+                    <div className="flex flex-col md:flex-row items-center justify-between p-8 md:p-10 gap-6 relative z-10">
+                        <div className="flex flex-col gap-2 max-w-md">
+                            <h2 className="text-xl md:text-2xl font-bold text-[#181111]">Mari Bergabung bersama Kami!</h2>
+                            <p className="text-sm md:text-base text-gray-500">Masih ragu atau ada yang ingin ditanyakan? Jangan sungkan untuk menghubungi kami.</p>
                         </div>
-                        <div className="flex flex-wrap gap-4">
-                            <Link href="/daftar" className="flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
+                        <div className="flex flex-wrap gap-3">
+                            <Link href="/daftar" className="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
                                 Daftar
                             </Link>
-                            <Link href="https://www.instagram.com/lamankabar/" className="flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border-2 border-primary text-primary text-base font-bold hover:bg-primary/5 transition-colors">
+                            <Link href="https://www.instagram.com/lamankabar/" className="flex items-center justify-center rounded-lg h-10 px-6 bg-transparent border-2 border-primary text-primary text-sm font-bold hover:bg-primary/5 transition-colors">
                                 Hubungi Kami
                             </Link>
                         </div>
