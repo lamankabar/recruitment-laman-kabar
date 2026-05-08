@@ -56,7 +56,7 @@ export default async function Home() {
   const faqs = await getFaqs()
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light group/design-root overflow-x-hidden font-display text-[#181111]">
+    <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light group/design-root overflow-x-clip font-display text-[#181111]">
       <Navbar />
 
       <main className="flex-grow">
@@ -148,7 +148,7 @@ export default async function Home() {
           <div className="px-5 md:px-20 py-16 flex flex-col items-center bg-[#fcf9f9]" id="faq">
             <div className="max-w-[960px] w-full flex flex-col gap-10 animate-fade-in-up">
               <div className="text-center max-w-[600px] mx-auto">
-                <h2 className="text-3xl font-bold mb-3 text-[#181111]">Pertanyaan yang Sering Ditanyakan</h2>
+                <h2 className="text-3xl font-bold mb-3 text-[#181111]">Pertanyaan yang Sering Diajukan</h2>
                 <p className="text-gray-500">Punya pertanyaan? Temukan jawabannya di sini.</p>
               </div>
 

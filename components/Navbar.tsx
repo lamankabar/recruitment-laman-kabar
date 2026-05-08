@@ -8,7 +8,7 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
     return (
-        <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#f5f0f0] bg-white/80 backdrop-blur-md px-5 md:px-10 py-4 relative">
+        <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#f5f0f0] bg-white/80 backdrop-blur-md px-5 md:px-10 py-4">
             <div className="flex items-center gap-3">
                 <img
                     src="http://cdn01.lamankabar.web.id/logo/lamankabar-logo.png"
