@@ -1,3 +1,4 @@
+import Link from 'next/link'
 
 export default function Footer() {
     return (
@@ -14,7 +15,7 @@ export default function Footer() {
                 <div className="flex gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
                     <a className="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
                     <a className="hover:text-primary transition-colors" href="#">S&K Website</a>
-                    <a className="hover:text-primary transition-colors" href="mailto:lamankabarupi@gmail.com">Hubungi Kami</a>
+                    <Link className="hover:text-primary transition-colors" href="/hubungi-kami">Hubungi Kami</Link>
                 </div>
                 <div className="flex gap-4">
                     <a className="text-gray-400 hover:text-primary transition-colors" href="https://www.instagram.com/lamankabarupi/">

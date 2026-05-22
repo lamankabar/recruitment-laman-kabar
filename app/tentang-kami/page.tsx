@@ -149,7 +149,7 @@ export default async function AboutPage() {
                             <Link href="/daftar" className="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
                                 Daftar
                             </Link>
-                            <Link href="https://www.instagram.com/lamankabar/" className="flex items-center justify-center rounded-lg h-10 px-6 bg-transparent border-2 border-primary text-primary text-sm font-bold hover:bg-primary/5 transition-colors">
+                            <Link href="/hubungi-kami" className="flex items-center justify-center rounded-lg h-10 px-6 bg-transparent border-2 border-primary text-primary text-sm font-bold hover:bg-primary/5 transition-colors">
                                 Hubungi Kami
                             </Link>
                         </div>
