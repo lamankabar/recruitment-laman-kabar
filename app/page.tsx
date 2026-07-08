@@ -21,7 +21,7 @@ async function getDepartments() {
   const { data } = await supabase.from('departments').select('*')
   if (!data) return []
   return data
-    .filter(d => d.name !== 'Ketua' && d.name !== 'Wakil Ketua')
+    .filter(d => d.name !== 'Ketua' && d.name !== 'Wakil Ketua' && d.name !== '_Page_Config')
     .map(d => {
       let desc = d.description
       try {
