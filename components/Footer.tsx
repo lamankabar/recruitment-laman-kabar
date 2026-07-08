@@ -6,19 +6,20 @@ export default function Footer() {
             <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-2">
                     <img
-                        src="http://cdn01.lamankabar.web.id/logo/lamankabar-logo.png"
+                        src="http://cdn01.lamankabar.web.id/logo/lamankabar.png"
                         alt="Laman Kabar Logo"
                         className="h-8 w-auto object-contain"
                     />
                     {/* <span className="text-lg font-bold text-[#181111] dark:text-white">Laman Kabar</span> */}
                 </div>
-                <div className="flex gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <a className="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
-                    <a className="hover:text-primary transition-colors" href="#">S&K Website</a>
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <Link className="hover:text-primary transition-colors" href="/kebijakan-privasi">Kebijakan Privasi</Link>
+                    <Link className="hover:text-primary transition-colors" href="/syarat-ketentuan">S&K Website</Link>
+                    <Link className="hover:text-primary transition-colors" href="/faq">FAQ</Link>
                     <Link className="hover:text-primary transition-colors" href="/hubungi-kami">Hubungi Kami</Link>
                 </div>
                 <div className="flex gap-4">
-                    <a className="text-gray-400 hover:text-primary transition-colors" href="https://www.instagram.com/lamankabarupi/">
+                    <a className="text-gray-400 hover:text-primary transition-colors" href="https://www.instagram.com/lamankabar/">
                         <span className="material-symbols-outlined">public</span>
                     </a>
                     <a className="text-gray-400 hover:text-primary transition-colors" href="mailto:lamankabarupi@gmail.com">

@@ -20,28 +20,10 @@ async function getAboutData() {
     }
 }
 
-// Helper to get departments
-async function getDepartments() {
-    const { data } = await supabase.from('departments').select('*')
-    return data || []
-}
 
-// Helper to map department names to icons
-function getIconForDept(name: string) {
-    const lower = name.toLowerCase()
-    if (lower.includes('educa') || lower.includes('pendidikan')) return 'school'
-    if (lower.includes('social') || lower.includes('sosial')) return 'volunteer_activism'
-    if (lower.includes('tech') || lower.includes('teknologi')) return 'rocket_launch'
-    if (lower.includes('art') || lower.includes('seni') || lower.includes('budaya')) return 'palette'
-    if (lower.includes('health') || lower.includes('kesehatan')) return 'cardiology'
-    if (lower.includes('outreach') || lower.includes('humas')) return 'campaign'
-    return 'groups' // default
-}
 
 export default async function AboutPage() {
     const about = await getAboutData()
-    const departments = await getDepartments()
-    const isDepartmentsActive = (await supabase.from('departments_config').select('is_active').single()).data?.is_active
 
     // Helper to parse mission if it's stored as plain text or newlines
     // Ensure mission is a string before splitting
@@ -94,38 +76,7 @@ export default async function AboutPage() {
                         ))}
                     </ul>
 
-                    {/* Departments Section (Inserted) */}
-                    <div className="my-12">
-                        <div className="mb-8">
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2">Struktur Pengurus</h3>
-                            <p className="text-base text-gray-500">Berikut ini adalah struktur pengurus Laman Kabar.</p>
-                        </div>
 
-                        {isDepartmentsActive === false ? (
-                            <div className="flex flex-col items-center justify-center py-6 border border-dashed border-gray-200 rounded-xl bg-gray-50">
-                                <div className="bg-orange-50 text-orange-600 px-4 py-1 rounded-full font-bold uppercase text-xs mb-2 border border-orange-100">
-                                    Stay Tuned
-                                </div>
-                                <h4 className="text-xl font-bold text-slate-800">Segera Hadir</h4>
-                            </div>
-                        ) : departments.length === 0 ? (
-                            <p className="text-center text-gray-400 italic">Belum ada data.</p>
-                        ) : (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {departments.map((dept: any) => (
-                                    <div key={dept.id} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 no-underline">
-                                        <div className="size-10 rounded-lg bg-primary/10 flex-shrink-0 flex items-center justify-center text-primary mt-1">
-                                            <span className="material-symbols-outlined text-[20px]">{getIconForDept(dept.name)}</span>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-lg font-bold text-slate-900 mb-1 leading-tight">{dept.name}</h4>
-                                            <p className="text-sm text-gray-500 leading-snug">{dept.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
 
                     <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Bergabunglah Bersama Kami</h3>
                     <p className="whitespace-pre-line">

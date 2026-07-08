@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Laman Kabar",
-  description: "Media Massa UPI Purwakarta!",
+  description: "Laman Kabar adalah Media Massa Universitas Pendidikan Indonesia Kampus UPI di Purwakarta!",
 };
 
 export default function RootLayout({

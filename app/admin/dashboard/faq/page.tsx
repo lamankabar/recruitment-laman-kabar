@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import AdminDialog from '@/components/AdminDialog'
 
 type FAQ = {
     id: string
@@ -30,6 +31,17 @@ export default function FAQPage() {
 
     // Menu State (for Delete)
     const [activeMenuId, setActiveMenuId] = useState<string | null>(null)
+
+    // Dialog State
+    const [dialogConfig, setDialogConfig] = useState<{isOpen: boolean, title: string, message: string, type: 'alert'|'confirm', onConfirm?: () => void}>({isOpen: false, title: '', message: '', type: 'alert'})
+
+    const showAlert = (title: string, message: string) => {
+        setDialogConfig({ isOpen: true, title, message, type: 'alert' })
+    }
+
+    const showConfirm = (title: string, message: string, onConfirm: () => void) => {
+        setDialogConfig({ isOpen: true, title, message, type: 'confirm', onConfirm })
+    }
 
     useEffect(() => {
         fetchData()
@@ -76,7 +88,7 @@ export default function FAQPage() {
                 setIsModalOpen(false)
             } else if (error) {
                 console.error("Error updating FAQ:", error)
-                alert("Gagal mengupdate FAQ: " + error.message)
+                showAlert("Gagal", "Gagal mengupdate FAQ: " + error.message)
             }
         } else {
             const { data, error } = await supabase
@@ -89,15 +101,17 @@ export default function FAQPage() {
                 setIsModalOpen(false)
             } else if (error) {
                 console.error("Error creating FAQ:", error)
-                alert("Gagal menyimpan FAQ: " + error.message)
+                showAlert("Gagal", "Gagal menyimpan FAQ: " + error.message)
             }
         }
         setSaving(false)
     }
 
-    async function handleDelete(id: string) {
-        if (!confirm('Are you sure you want to delete this FAQ?')) return
+    function requestDelete(id: string) {
+        showConfirm('Delete FAQ?', 'Are you sure you want to delete this FAQ? This action cannot be undone.', () => handleDelete(id))
+    }
 
+    async function handleDelete(id: string) {
         const { error } = await supabase.from('faqs').delete().eq('id', id)
         if (!error) {
             setFaqs(faqs.filter((f) => f.id !== id))
@@ -199,7 +213,7 @@ export default function FAQPage() {
                                 {activeMenuId === faq.id && (
                                     <div className="absolute right-0 top-12 w-32 bg-white rounded-lg shadow-xl border border-gray-100 z-10 py-1 animation-fade-in">
                                         <button
-                                            onClick={() => handleDelete(faq.id)}
+                                            onClick={() => requestDelete(faq.id)}
                                             className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
                                         >
                                             <span className="material-symbols-outlined text-[16px]">delete</span>
@@ -302,6 +316,15 @@ export default function FAQPage() {
                     </div>
                 </div>
             )}
+
+            <AdminDialog 
+                isOpen={dialogConfig.isOpen}
+                title={dialogConfig.title}
+                message={dialogConfig.message}
+                type={dialogConfig.type}
+                onClose={() => setDialogConfig(prev => ({ ...prev, isOpen: false }))}
+                onConfirm={dialogConfig.onConfirm}
+            />
         </div>
     )
 }

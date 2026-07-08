@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import Countdown from '@/components/Countdown'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
+import DepartmentCarousel from '@/components/DepartmentCarousel'
 
 export const revalidate = 60
 
@@ -18,7 +19,19 @@ async function getAboutUs() {
 
 async function getDepartments() {
   const { data } = await supabase.from('departments').select('*')
-  return data || []
+  if (!data) return []
+  return data
+    .filter(d => d.name !== 'Ketua' && d.name !== 'Wakil Ketua')
+    .map(d => {
+      let desc = d.description
+      try {
+        const parsed = JSON.parse(d.description)
+        desc = parsed.desc
+      } catch (e) {
+        // fallback to original
+      }
+      return { ...d, description: desc }
+    })
 }
 
 // Helper to map department names to icons (fallback to 'groups' if not found)
@@ -83,7 +96,7 @@ export default async function Home() {
               <div className="w-full h-64 md:h-80 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-0"></div>
                 <img
-                  src="http://cdn01.lamankabar.web.id/logo/lamankabar-logo.png"
+                  src="http://cdn01.lamankabar.web.id/logo/lamankabar.png"
                   alt="Laman Kabar Logo"
                   className="w-2/3 md:w-1/2 h-auto object-contain relative z-10 drop-shadow-md"
                 />
@@ -128,16 +141,14 @@ export default async function Home() {
             ) : departments.length === 0 ? (
               <p className="text-center text-gray-500">Tidak ada data struktur pengurus tersedia.</p>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {departments.map((dept: any) => (
-                  <div key={dept.id} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group">
-                    <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                      <span className="material-symbols-outlined">{getIconForDept(dept.name)}</span>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{dept.name}</h3>
-                    <p className="text-gray-500 text-sm">{dept.description}</p>
-                  </div>
-                ))}
+              <div className="flex flex-col items-center w-full">
+                <DepartmentCarousel departments={departments} />
+                
+                <div className="mt-2">
+                  <Link href="/struktur" className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-primary text-white text-base font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20 active:scale-95">
+                    Lihat Selengkapnya <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
             )}
           </div>

@@ -11,7 +11,7 @@ export default function Navbar() {
         <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#f5f0f0] bg-white/80 backdrop-blur-md px-5 md:px-10 py-4">
             <div className="flex items-center gap-3">
                 <img
-                    src="http://cdn01.lamankabar.web.id/logo/lamankabar-logo.png"
+                    src="http://cdn01.lamankabar.web.id/logo/lamankabar.png"
                     alt="Laman Kabar Logo"
                     className="h-10 w-auto object-contain"
                 />
@@ -22,6 +22,8 @@ export default function Navbar() {
                 <div className="flex items-center gap-9">
                     <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/">Beranda</Link>
                     <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/tentang-kami">Tentang</Link>
+                    <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/struktur">Struktur</Link>
+                    <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/faq">FAQ</Link>
                     <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors text-slate-900" href="/hubungi-kami">Hubungi Kami</Link>
                 </div>
                 <Link href="/daftar" className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors">
@@ -39,6 +41,8 @@ export default function Navbar() {
                 <div className="absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-lg p-5 flex flex-col gap-4 animate-in slide-in-from-top-2 md:hidden">
                     <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/">Beranda</Link>
                     <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/tentang-kami">Tentang</Link>
+                    <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/struktur">Struktur</Link>
+                    <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/faq">FAQ</Link>
                     <Link onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium py-2 hover:text-primary transition-colors text-slate-900 border-b border-gray-50" href="/hubungi-kami">Hubungi Kami</Link>
                     <Link onClick={() => setIsMobileMenuOpen(false)} href="/daftar" className="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-red-700 transition-colors mt-2">
                         Daftar
