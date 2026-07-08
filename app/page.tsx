@@ -164,7 +164,7 @@ export default async function Home() {
               </div>
 
               <div className="flex flex-col gap-4">
-                {faqs.map((faq: any) => (
+                {faqs.slice(0, 5).map((faq: any) => (
                   <details key={faq.id} className="group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden [&_summary::-webkit-details-marker]:hidden">
                     <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-lg text-[#181111] hover:text-primary transition-colors">
                       {faq.question}
@@ -178,6 +178,14 @@ export default async function Home() {
                   </details>
                 ))}
               </div>
+
+              {faqs.length > 5 && (
+                <div className="mt-4 flex justify-center">
+                  <Link href="/faq" className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-white border border-gray-200 text-[#181111] font-bold hover:border-primary hover:text-primary transition-all shadow-sm hover:shadow-md">
+                    Lihat Pertanyaan Lainnya <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}
