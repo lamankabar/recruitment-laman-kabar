@@ -51,7 +51,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         { href: '/admin/dashboard', icon: 'dashboard', label: 'Dashboard' },
         { href: '/admin/dashboard/content', icon: 'edit_document', label: 'Konten Beranda' },
         { href: '/admin/dashboard/about', icon: 'info', label: 'Tentang Kami' },
-        { href: '/admin/dashboard/departments', icon: 'account_tree', label: 'Struktur Organisasi' },
+        { href: '/admin/dashboard/departments', icon: 'account_tree', label: 'Struktur Pengurus' },
         { href: '/admin/dashboard/faq', icon: 'quiz', label: 'FAQ' },
         { href: '/admin/dashboard/submissions', icon: 'group', label: 'Pendaftaran' },
         { href: '/admin/dashboard/registration', icon: 'settings_applications', label: 'Pengaturan Pendaftaran' },
@@ -125,7 +125,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     <div className="flex items-center justify-between px-2">
                         <div className="flex items-center gap-3">
                             <img
-                                src="http://cdn01.lamankabar.web.id/logo/lamankabar-logo.png"
+                                src="http://cdn01.lamankabar.web.id/logo/lamankabar.png"
                                 alt="Laman Kabar Logo"
                                 className="h-10 w-auto object-contain"
                             />

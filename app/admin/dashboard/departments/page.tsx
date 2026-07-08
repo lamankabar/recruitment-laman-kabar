@@ -353,7 +353,7 @@ export default function DepartmentsPage() {
             <div className="flex items-center gap-2 text-sm">
                 <span className="text-[#8a6060] font-medium">Dashboard</span>
                 <span className="material-symbols-outlined text-[#8a6060] text-sm">chevron_right</span>
-                <span className="text-[#181111] font-bold">Struktur Organisasi</span>
+                <span className="text-[#181111] font-bold">Struktur Pengurus</span>
             </div>
 
             {/* Config Card */}
@@ -441,8 +441,8 @@ export default function DepartmentsPage() {
             {/* Page Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="flex flex-col gap-2">
-                    <h1 className="text-[#181111] text-3xl md:text-4xl font-extrabold tracking-tight">Struktur Organisasi</h1>
-                    <p className="text-[#8a6060] text-base font-normal max-w-2xl">Kelola Ketua, Wakil Ketua, dan Departemen beserta divisinya.</p>
+                    <h1 className="text-[#181111] text-3xl md:text-4xl font-extrabold tracking-tight">Struktur Pengurus</h1>
+                    <p className="text-[#8a6060] text-base font-normal max-w-2xl">Kelola Pimpinan, Departemen, beserta divisinya.</p>
                 </div>
             </div>
 
@@ -451,26 +451,26 @@ export default function DepartmentsPage() {
                 {/* Ketua Card */}
                 <div className="bg-white rounded-xl p-6 border border-primary/20 shadow-sm flex flex-col items-center text-center relative hover:shadow-lg transition-shadow">
                     <div className="absolute top-0 left-0 w-full h-2 bg-primary rounded-t-xl"></div>
-                    <h3 className="text-sm font-bold text-primary uppercase tracking-wider mb-3 mt-2">Ketua</h3>
+                    <h3 className="text-sm font-bold text-primary uppercase tracking-wider mb-3 mt-2">Pimpinan</h3>
                     <h2 className="text-2xl font-black text-slate-900 mb-1">{ketua ? getLeaderName(ketua.description) : 'Belum Diatur'}</h2>
                     <button 
                         onClick={() => openLeaderModal('Ketua')}
                         className="mt-4 px-4 py-2 rounded-lg border border-primary text-primary font-bold text-sm hover:bg-primary/5 transition-colors flex items-center gap-2"
                     >
-                        <span className="material-symbols-outlined text-[18px]">edit</span> Edit Ketua
+                        <span className="material-symbols-outlined text-[18px]">edit</span> Edit Pimpinan
                     </button>
                 </div>
 
                 {/* Wakil Ketua Card */}
                 <div className="bg-white rounded-xl p-6 border border-blue-500/20 shadow-sm flex flex-col items-center text-center relative hover:shadow-lg transition-shadow">
                     <div className="absolute top-0 left-0 w-full h-2 bg-blue-500 rounded-t-xl"></div>
-                    <h3 className="text-sm font-bold text-blue-500 uppercase tracking-wider mb-3 mt-2">Wakil Ketua</h3>
+                    <h3 className="text-sm font-bold text-blue-500 uppercase tracking-wider mb-3 mt-2">Wakil Pimpinan</h3>
                     <h2 className="text-2xl font-black text-slate-900 mb-1">{wakilKetua ? getLeaderName(wakilKetua.description) : 'Belum Diatur'}</h2>
                     <button 
                         onClick={() => openLeaderModal('Wakil Ketua')}
                         className="mt-4 px-4 py-2 rounded-lg border border-blue-500 text-blue-500 font-bold text-sm hover:bg-blue-500/5 transition-colors flex items-center gap-2"
                     >
-                        <span className="material-symbols-outlined text-[18px]">edit</span> Edit Wakil Ketua
+                        <span className="material-symbols-outlined text-[18px]">edit</span> Edit Wakil Pimpinan
                     </button>
                 </div>
             </div>
@@ -479,7 +479,7 @@ export default function DepartmentsPage() {
 
             {/* DEPARTMENTS SECTION */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <h2 className="text-2xl font-extrabold text-slate-900">Daftar Departemen</h2>
+                <h2 className="text-2xl font-extrabold text-slate-900">Daftar Departemen/Bidang</h2>
                 <button
                     onClick={openAddModal}
                     className="flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary hover:bg-red-700 text-white text-sm font-bold shadow-lg shadow-red-500/20 transition-all active:scale-95"
@@ -675,7 +675,7 @@ export default function DepartmentsPage() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-bold text-slate-700 mb-1">Kepala Departemen</label>
+                                    <label className="block text-sm font-bold text-slate-700 mb-1">Direktur Departemen</label>
                                     <input
                                         className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-medium"
                                         placeholder="Contoh: Siti Aminah (Boleh dikosongkan)"
