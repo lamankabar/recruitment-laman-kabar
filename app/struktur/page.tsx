@@ -174,7 +174,7 @@ export default async function StrukturPage() {
                                                     {parsed.divisions.map((div: any, dIdx: number) => (
                                                         <div key={dIdx} className={`bg-slate-50 border border-slate-100 rounded-lg p-3 text-left transition-colors ${color.hover}`}>
                                                             <h4 className="font-semibold text-slate-700 text-sm">{div.name}</h4>
-                                                            {div.desc && <p className="text-xs text-gray-500 mt-1">{div.desc}</p>}
+                                                            {div.desc && <p className="text-xs text-gray-500 mt-1 text-justify">{div.desc}</p>}
                                                         </div>
                                                     ))}
                                                 </div>
